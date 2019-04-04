@@ -1,4 +1,4 @@
-package com.ctech.bartucz.criminalintent;
+package com.ctech.shockman.criminalintent;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

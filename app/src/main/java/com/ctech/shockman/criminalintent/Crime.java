@@ -1,4 +1,4 @@
-package com.ctech.bartucz.criminalintent;
+package com.ctech.shockman.criminalintent;
 
 import java.util.Date;
 import java.util.UUID;

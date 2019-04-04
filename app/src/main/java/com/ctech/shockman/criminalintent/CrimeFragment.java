@@ -1,4 +1,4 @@
-package com.ctech.bartucz.criminalintent;
+package com.ctech.shockman.criminalintent;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
