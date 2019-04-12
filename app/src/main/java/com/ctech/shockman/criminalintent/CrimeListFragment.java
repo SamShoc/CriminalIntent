@@ -39,8 +39,8 @@ public class CrimeListFragment extends Fragment {
         mCrimeRecyclerView.setAdapter(mAdapter);
     }
 
-    private class CrimeHolder extends RecyclerView.ViewHolder {
-        implements View.OnClickListener {}
+    private class CrimeHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
 
         private TextView mTitleTextView;
         private TextView mDateTextView;
