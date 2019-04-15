@@ -1,5 +1,7 @@
 package com.ctech.shockman.criminalintent;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.UUID;
 
 public class CrimeListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
@@ -61,7 +64,9 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(), "clicked!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "clicked!", Toast.LENGTH_SHORT).show();
+            Intent myIntent = new Intent(getActivity(), CrimeActivity.class);
+            startActivity(myIntent);
         }
 
         public void bind(Crime crime) {
@@ -96,6 +101,14 @@ public class CrimeListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mCrimes.size();
+        }
+    }
+    public class CrimeActivity extends SingleFragmentActivity {
+        private static final String EXTRA_CRIME_ID = "com.ctech.shockman.criminalintent.crime.id";
+
+        public static Intent newIntent(Context packageContext, UUID crimeId) {
+            Intent myIntent = new Intent(packageContext, CrimeActivity.class);
+            return myIntent;
         }
     }
 }
