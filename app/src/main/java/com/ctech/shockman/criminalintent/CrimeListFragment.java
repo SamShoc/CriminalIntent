@@ -35,12 +35,21 @@ public class CrimeListFragment extends Fragment {
         return myView;
     }
 
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         CrimeLab crimeLab = CrimeLab.get(getActivity());
         List<Crime> crimes = crimeLab.getCrimes();
 
-        mAdapter = new CrimeAdapter(crimes);
-        mCrimeRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new CrimeAdapter(crimes);
+            mCrimeRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private class CrimeHolder extends RecyclerView.ViewHolder
@@ -103,12 +112,5 @@ public class CrimeListFragment extends Fragment {
             return mCrimes.size();
         }
     }
-    public class CrimeActivity extends SingleFragmentActivity {
-        private static final String EXTRA_CRIME_ID = "com.ctech.shockman.criminalintent.crime.id";
 
-        public static Intent newIntent(Context packageContext, UUID crimeId) {
-            Intent myIntent = new Intent(packageContext, CrimeActivity.class);
-            return myIntent;
-        }
-    }
 }

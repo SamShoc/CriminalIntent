@@ -61,6 +61,7 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
                 mCrime.setTitle(charSequence.toString());
+
             }
 
             @Override
@@ -83,14 +84,6 @@ public class CrimeFragment extends Fragment {
         });
 
         return v;
-    }
-    public void onSavedInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        Log.i(TAG, "onSavedInstanceState");
-        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
-        savedInstanceState.putBooleanArray(KEY_CHEAT_QUESTIONS, mQuestionsCheated);
-        savedInstanceState.putBoolean(KEY_CHEATER, mIsCheater);
-        savedInstanceState.putInt(KEY_CHEATS_LEFT, mCheatsLeft);
     }
 }
 
