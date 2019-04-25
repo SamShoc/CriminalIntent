@@ -9,6 +9,7 @@ public class Crime {
     private String mTitle;  // title of the crime
     private Date mDate;     // date of the crime
     private boolean mSolved; // has the crime been solved?
+    private  String mSuspect;
 
     public Crime(UUID id) {
         mId = id; // automatically create a guaranteed-unique ID.
@@ -45,5 +46,13 @@ public class Crime {
 
     public void setSolved(boolean solved) {
         mSolved = solved;
+    }
+
+    public String getSuspect() {
+        return mSuspect;
+    }
+
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
     }
 }
