@@ -9,6 +9,7 @@ import com.ctech.shockman.criminalintent.database.CrimeBaseHelper;
 import com.ctech.shockman.criminalintent.database.CrimeCursorWrapper;
 import com.ctech.shockman.criminalintent.database.CrimeDbSchema;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -47,6 +48,11 @@ public class CrimeLab {
         String searchString = CrimeTable.Columns.UUID + " = ?";
         String[] searchArgs = new String[] { crimeId };
         mDatabase.update(CrimeTable.NAME, newValues, searchString, searchArgs);
+    }
+
+    public File getPhotoFile(Crime crime) {
+        File filesDir = mContext.getFilesDir();
+        return new File(filesDir, crime.getPhotoFilename());
     }
 
     public void addCrime(Crime c) {
